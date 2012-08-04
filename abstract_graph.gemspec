@@ -2,16 +2,18 @@
 require File.expand_path('../lib/abstract_graph/version', __FILE__)
 
 Gem::Specification.new do |gem|
+  gem.name          = "abstract_graph"
+  gem.version       = AbstractGraph::VERSION
+
   gem.authors       = ["Austin Lee ~D4L"]
   gem.email         = ["Austin.Lee.D4L@gmail.com"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
+  gem.description   = %q{Abstract Graph is a super graph program that will be able to create mathematical
+  graphs and then we can run graph analysis algorithms such as shortest path.}
+  gem.summary       = %q{Mathmatical graph analysis software.}
   gem.homepage      = ""
 
   gem.files         = `git ls-files`.split($\)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
-  gem.name          = "abstract_graph"
   gem.require_paths = ["lib"]
-  gem.version       = AbstractGraph::VERSION
 end

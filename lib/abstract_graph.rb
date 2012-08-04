@@ -1,5 +1,5 @@
 require "abstract_graph/version"
+require "abstract_graph/graph"
 
 module AbstractGraph
-  # Your code goes here...
 end
