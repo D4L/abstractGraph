@@ -4,7 +4,7 @@ module AbstractGraph
     class Graph
 
         # public constructor
-        def initialize
+        def initialise
 
         end
     end

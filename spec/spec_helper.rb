@@ -1,1 +1,10 @@
-require 'abstract_graph/abstract_graph'
+require 'rspec'
+require 'abstract_graph'
+
+# below already coded inside the rakefile
+=begin
+RSpec.configure do |config|
+  config.color_enabled = true
+  config.formatter = 'documentation'
+end
+=end

@@ -8,3 +8,5 @@ RSpec::Core::RakeTask.new do |t|
     t.rspec_opts = %w(-fs --color)
     t.ruby_opts = %w(-w)
 end
+
+task :default => :spec
