@@ -10,7 +10,7 @@ Gem::Specification.new do |gem|
   gem.description   = %q{Abstract Graph is a super graph program that will be able to create mathematical
   graphs and then we can run graph analysis algorithms such as shortest path.}
   gem.summary       = %q{Mathmatical graph analysis software.}
-  gem.homepage      = ""
+  gem.homepage      = "https://github.com/D4L/abstractGraph"
 
   gem.files         = `git ls-files`.split($\)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
