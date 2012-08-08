@@ -1,11 +1,7 @@
 module AbstractGraph
 
-    # public graph class
+    # public Graph class
     class Graph
-
-        # public constructor
-        def initialise
-
-        end
     end
+
 end
