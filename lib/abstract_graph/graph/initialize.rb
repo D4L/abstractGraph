@@ -1,3 +1,5 @@
+# required in "abstract_graph/graph"
+
 module AbstractGraph
   class Graph
 

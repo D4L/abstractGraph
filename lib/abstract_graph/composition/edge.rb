@@ -1,3 +1,5 @@
+# required in "abstract_graph/composition"
+
 module AbstractGraph
   module Composition
 

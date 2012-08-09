@@ -1,3 +1,5 @@
+# required in "abstract_graph"
+
 module AbstractGraph
 
     # public Graph class
@@ -5,3 +7,5 @@ module AbstractGraph
     end
 
 end
+
+require "abstract_graph/graph/initialize"

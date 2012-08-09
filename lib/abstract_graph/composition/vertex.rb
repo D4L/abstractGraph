@@ -1,3 +1,5 @@
+# required in "abstract_graph/composition"
+
 module AbstractGraph
   module Composition
 
@@ -7,3 +9,5 @@ module AbstractGraph
     end
   end
 end
+
+require "abstract_graph/composition/vertex/initialize"

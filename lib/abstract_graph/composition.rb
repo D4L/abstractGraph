@@ -1,3 +1,5 @@
+# required in "abstract_graph"
+
 require "abstract_graph/composition/vertex"
 require "abstract_graph/composition/edge"
 
