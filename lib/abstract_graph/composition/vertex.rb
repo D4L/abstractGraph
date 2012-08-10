@@ -5,6 +5,12 @@ module AbstractGraph
 
     # public Vertex class
     class Vertex
+      attr_reader :name
+
+      def name=(name)
+        raise ArgumentError if name.class != String
+        @name = name
+      end
 
     end
   end

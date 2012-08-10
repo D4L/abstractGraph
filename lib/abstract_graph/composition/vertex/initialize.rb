@@ -4,7 +4,8 @@ module AbstractGraph
   module Composition
     class Vertex
 
-      def initialize name=""
+      def initialize (name="", value="")
+        @name = name
 
       end
 

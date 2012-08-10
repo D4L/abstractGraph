@@ -25,4 +25,16 @@ describe AbstractGraph::Composition::Vertex do
 
   end
 
+  describe "#new(String, Object)" do
+
+    before (:each) do
+      @vertex = AbstractGraph::Composition::Vertex.new("v1", "Hello")
+    end
+
+    it "allows vertices to be initiated with name and value" do
+      @vertex.should_not be_nil
+    end
+
+  end
+
 end
