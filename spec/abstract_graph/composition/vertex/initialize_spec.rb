@@ -1,6 +1,11 @@
 require 'spec_helper'
 
 describe AbstractGraph::Composition::Vertex do
+  
+  before :each do
+    AbstractGraph::Composition::Vertex.class_variable_set :@@names, []
+  end
+
   describe "#new" do
 
     before (:each) do

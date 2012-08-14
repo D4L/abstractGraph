@@ -6,10 +6,13 @@ module AbstractGraph
     # public Vertex class
     class Vertex
       attr_reader :name
+      @@names = []
 
       def name=(name)
         raise ArgumentError if name.class != String
+        @@names.delete @name
         @name = name
+        @@names.push name
       end
 
     end
