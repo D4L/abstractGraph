@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe AbstractGraph::Composition::Vertex do
-  
+
   before :each do
     AbstractGraph::Composition::Vertex.class_variable_set :@@names, []
   end
@@ -26,6 +26,10 @@ describe AbstractGraph::Composition::Vertex do
 
     it "allows vertices to be initiated with a string name" do
       @vertex.should_not be_nil
+    end
+
+    it "doesn't allow two vertices to be named the same" do
+      expect { AbstractGraph::Composition::Vertex.new("v1") }.to raise_error
     end
 
   end

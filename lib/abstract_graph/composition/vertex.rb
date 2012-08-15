@@ -10,6 +10,7 @@ module AbstractGraph
 
       def name=(name)
         raise ArgumentError if name.class != String
+        raise Exception if @@names.include? name
         @@names.delete @name
         @name = name
         @@names.push name

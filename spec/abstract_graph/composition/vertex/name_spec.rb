@@ -40,7 +40,8 @@ describe AbstractGraph::Composition::Vertex do
 
     it "doesn't allow two objects to have the same name" do
       @vertex.name = "v1"
-      expect { AbstractGraph::Composition::Vertex.new("v1") }.to raise_error
+      vertex2 = AbstractGraph::Composition::Vertex.new("v2")
+      expect { vertex2.name = "v1" }.to raise_error
     end
 
     it "can change a name of a vertex to free up the name" do
@@ -50,6 +51,10 @@ describe AbstractGraph::Composition::Vertex do
       rescue Exception => e
         fail
       end
+    end
+
+    it "can assign a name after delete removes it" do
+      pending "delete method"
     end
 
   end
