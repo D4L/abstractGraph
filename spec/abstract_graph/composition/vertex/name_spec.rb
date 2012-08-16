@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe AbstractGraph::Composition::Vertex do
-  
+
   before :each do
     AbstractGraph::Composition::Vertex.class_variable_set :@@names, []
   end
@@ -19,6 +19,11 @@ describe AbstractGraph::Composition::Vertex do
 
     it "equals to the String in #new(String)" do
       @vertex.name.should eql(@arbitraryString)
+    end
+
+    it "equals to \"\" if nothing was passed as first param" do
+      @vertex2 = AbstractGraph::Composition::Vertex.new()
+      @vertex2.name.should eql("")
     end
 
   end
@@ -53,8 +58,14 @@ describe AbstractGraph::Composition::Vertex do
       end
     end
 
-    it "can assign a name after delete removes it" do
-      pending "delete method"
+    it "can reuse a name after delete removes it" do
+      @vertex.name = "v1"
+      @vertex.delete
+      begin
+        vertex2 = AbstractGraph::Composition::Vertex.new("v1")
+      rescue Exception => e
+        fail
+      end
     end
 
   end

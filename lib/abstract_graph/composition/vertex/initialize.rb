@@ -4,8 +4,9 @@ module AbstractGraph
   module Composition
     class Vertex
 
-      def initialize (name="", value="")
+      def initialize (name="", value=nil)
         @name = name
+        @value = value
         if @@names.include? name
           raise Exception
         end

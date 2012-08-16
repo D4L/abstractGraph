@@ -6,6 +6,7 @@ module AbstractGraph
     # public Vertex class
     class Vertex
       attr_reader :name
+      attr_accessor :value
       @@names = []
 
       def name=(name)
@@ -21,3 +22,4 @@ module AbstractGraph
 end
 
 require "abstract_graph/composition/vertex/initialize"
+require "abstract_graph/composition/vertex/delete"
