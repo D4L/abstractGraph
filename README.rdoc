@@ -19,7 +19,7 @@ Or install it yourself as:
 Or you can compile the project yourself:
     
     $ git clone https://github.com/D4L/abstractGraph.git
-    $ rake build_gem
+    $ rake build
 
 == Usage
 
