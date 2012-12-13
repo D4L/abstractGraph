@@ -1,0 +1,43 @@
+= This is AbstractGraph.
+
+-n a graph is an abstract representation of a set of objects where pairs of objects are connected. Not to be confused with the 2 dimensional plane that plots correlation
+
+== How to Install
+
+Add this line to your application's Gemfile:
+
+    gem 'abstract_graph'
+
+And then execute:
+
+    $ bundle
+
+Or install it yourself as:
+
+    $ gem install abstract_graph
+
+Or you can compile the project yourself:
+    
+    $ git clone https://github.com/D4L/abstractGraph.git
+    $ rake build_gem
+
+== Usage
+
+TODO: Write usage instructions here
+
+== Contributing
+
+1. Fork it
+2. Create your feature branch (`git checkout -b my-new-feature`)
+3. Commit your changes (`git commit -am 'Added some feature'`)
+4. Push to the branch (`git push origin my-new-feature`)
+5. Create new Pull Request
+
+== Authors
+
+Austin.L <b>~D4L<\b>
+
+ 
+
+---
+noli umquam oblivisci: cogito ergo sum
