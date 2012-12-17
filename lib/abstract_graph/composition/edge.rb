@@ -6,6 +6,7 @@ module AbstractGraph
     # public Edge class
     class Edge
       attr_reader :name
+      attr_accessor :vertices
 
       def name=(name)
         raise ArgumentError if name.class != String
