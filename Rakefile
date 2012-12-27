@@ -9,3 +9,6 @@ RSpec::Core::RakeTask.new do |t|
 end
 
 task :default => :spec
+
+desc "Run tests (same as rake spec)"
+task :test => :spec
