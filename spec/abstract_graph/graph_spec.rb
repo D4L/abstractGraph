@@ -1,4 +1,6 @@
 require 'spec_helper'
 
-describe AbstractGraph::Graph do
+module AbstractGraph
+  describe Graph do
+  end
 end

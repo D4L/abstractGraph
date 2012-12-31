@@ -1,4 +1,8 @@
 require 'spec_helper'
 
-describe AbstractGraph::Composition::Vertex do
+module AbstractGraph
+  module Composition
+    describe Vertex do
+    end
+  end
 end

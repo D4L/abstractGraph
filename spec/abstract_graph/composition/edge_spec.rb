@@ -1,4 +1,8 @@
 require 'spec_helper'
 
-describe AbstractGraph::Composition::Edge do
+module AbstractGraph
+  module Composition
+    describe Edge do
+    end
+  end
 end
