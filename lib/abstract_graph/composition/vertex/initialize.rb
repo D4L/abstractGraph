@@ -7,10 +7,6 @@ module AbstractGraph
       def initialize (name="", value=nil)
         @name = name
         @value = value
-        if @@names.include? name
-          raise Exception
-        end
-        @@names.push name
       end
 
     end

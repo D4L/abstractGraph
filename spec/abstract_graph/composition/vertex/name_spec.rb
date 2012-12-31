@@ -45,31 +45,6 @@ module AbstractGraph
           expect { @vertex.name = 100 }.to raise_error
         end
 
-        it "doesn't allow two objects to have the same name" do
-          @vertex.name = "v1"
-          vertex2 = Vertex.new("v2")
-          expect { vertex2.name = "v1" }.to raise_error
-        end
-
-        it "can change a name of a vertex to free up the name" do
-          @vertex.name = "v1"
-          begin
-            vertex2 = Vertex.new()
-          rescue Exception => e
-            fail
-          end
-        end
-
-        it "can reuse a name after delete removes it" do
-          @vertex.name = "v1"
-          @vertex.delete
-          begin
-            vertex2 = Vertex.new("v1")
-          rescue Exception => e
-            fail
-          end
-        end
-
       end
     end
   end

@@ -30,10 +30,6 @@ module AbstractGraph
           @vertex.should_not be_nil
         end
 
-        it "doesn't allow two vertices to be named the same" do
-          expect { Vertex.new("v1") }.to raise_error
-        end
-
       end
 
       describe "#new(String, Object)" do

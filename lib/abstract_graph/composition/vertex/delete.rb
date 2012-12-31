@@ -5,8 +5,6 @@ module AbstractGraph
     class Vertex
 
       def delete
-        @@names.delete @name
-        nil
       end
 
     end
