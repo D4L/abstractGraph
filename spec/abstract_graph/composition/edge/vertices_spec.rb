@@ -5,7 +5,6 @@ module AbstractGraph
     describe Edge do
 
       before :all do
-        Vertex.class_variable_set :@@names, []
         @v1 = Vertex.new "v1"
         @v2 = Vertex.new "v2"
         @edge = Edge.new( @v1, @v2 )

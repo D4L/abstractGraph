@@ -4,10 +4,6 @@ module AbstractGraph
   module Composition
     describe Vertex do
 
-      before :each do
-        Vertex.class_variable_set :@@names, []
-      end
-
       describe "#value" do
 
         before (:each) do
