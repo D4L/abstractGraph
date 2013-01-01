@@ -35,7 +35,7 @@ TODO: Write usage instructions here
 
 == Authors
 
-Austin.L <b>~D4L<\b>
+Austin.L <b>~D4L</b>
 
  
 
