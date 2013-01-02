@@ -6,6 +6,8 @@ module AbstractGraph
     # public constructor
     def initialize
 
+      @vertices = UniqueNameCollection.new
+
     end
 
   end

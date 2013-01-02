@@ -1,3 +1,4 @@
+require 'dummy_helper'
 require 'rspec'
 require 'abstract_graph'
 
