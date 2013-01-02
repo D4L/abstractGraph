@@ -8,10 +8,12 @@ module AbstractGraph
     #   class must implement #name
     class UniqueNameCollection
       attr_accessor :collection
-
     end
+
   end
 end
 
 require "abstract_graph/composition/uniquenamecollection/initialize"
 require "abstract_graph/composition/uniquenamecollection/add"
+require "abstract_graph/composition/uniquenamecollection/dup"
+require "abstract_graph/composition/uniquenamecollection/method_missing"

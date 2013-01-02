@@ -5,7 +5,6 @@ module AbstractGraph
     describe UniqueNameCollection do
 
       before(:each) do
-
         @collection = UniqueNameCollection.new
       end
 
