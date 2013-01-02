@@ -17,3 +17,4 @@ end
 require "abstract_graph/graph/initialize"
 require "abstract_graph/graph/add_vertex"
 require "abstract_graph/graph/has_vertex"
+require "abstract_graph/graph/dup"
