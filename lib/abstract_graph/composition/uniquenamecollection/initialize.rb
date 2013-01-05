@@ -6,6 +6,7 @@ module AbstractGraph
 
       def initialize
         @collection = Hash.new
+        @otherUnique = [self]
       end
 
     end

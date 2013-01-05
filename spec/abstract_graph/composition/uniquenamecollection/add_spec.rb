@@ -6,30 +6,32 @@ module AbstractGraph
 
       before(:each) do
         @collection = UniqueNameCollection.new
+        @dummy = Dummy.new
+        @dummy.name = "DummyName"
       end
 
       describe "#add(Object)" do
 
         it "tracks an object that has implemented #name" do
-          dummy = Dummy.new
-          dummy.name = "Hello"
-          @collection.add dummy
+          @collection.add @dummy
         end
 
         it "doesn't allow us to add the same object twice" do
-          dummy = Dummy.new
-          dummy.name = "Hello"
-          @collection.add dummy
-          expect { @collection.add dummy }.to raise_error
+          @collection.add @dummy
+          expect { @collection.add @dummy }.to raise_error
         end
 
         it "doesn't allow two objects to have the same name" do
-          dummy = Dummy.new
           dummy2 = Dummy.new
-          dummy.name = "Hello"
-          dummy2.name = "Hello"
-          @collection.add dummy
+          dummy2.name = "DummyName"
+          @collection.add @dummy
           expect { @collection.add dummy2 }.to raise_error
+        end
+
+        it "allows a same named object after deleting it" do
+          @collection.add @dummy
+          @collection.delete @dummy.name
+          expect { @collection.add @dummy }.to_not raise_error
         end
 
       end
