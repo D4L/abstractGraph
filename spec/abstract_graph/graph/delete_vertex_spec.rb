@@ -37,7 +37,7 @@ module AbstractGraph
         nextGraph.has_vertex?( "MyVertex" ).should be_false
       end
 
-      it "does not modify the original graph" do
+      it "removes the vertex from the original graph" do
         @graph.delete_vertex!( "MyVertex" )
         @graph.has_vertex?( "MyVertex" ).should be_false
       end
