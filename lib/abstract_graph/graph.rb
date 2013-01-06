@@ -9,6 +9,7 @@ module AbstractGraph
     include Composition
 
     attr_accessor :vertices
+    attr_accessor :edges
 
   end
 
@@ -19,3 +20,4 @@ require "abstract_graph/graph/add_vertex"
 require "abstract_graph/graph/has_vertex"
 require "abstract_graph/graph/dup"
 require "abstract_graph/graph/delete_vertex"
+require "abstract_graph/graph/add_edge"

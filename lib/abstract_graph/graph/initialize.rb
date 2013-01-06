@@ -7,6 +7,8 @@ module AbstractGraph
     def initialize
 
       @vertices = UniqueNameCollection.new
+      @edges = UniqueNameCollection.new
+      @vertices.link @edges
 
     end
 

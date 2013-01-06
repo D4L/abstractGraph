@@ -18,3 +18,4 @@ module AbstractGraph
 end
 
 require "abstract_graph/composition/edge/initialize"
+require "abstract_graph/composition/edge/is_coincident"
