@@ -7,10 +7,11 @@ Gem::Specification.new do |gem|
 
   gem.authors       = ["Austin Lee ~D4L"]
   gem.email         = ["Austin.Lee.D4L@gmail.com"]
-  gem.description   = %q{Abstract Graph is a super graph program that will be able to create mathematical
-  graphs and then we can run graph analysis algorithms such as shortest path.}
+  gem.description   = %q{Abstract Graph is a graphing library that can create
+                         mathematical graphs and perform operatations on them.}
   gem.summary       = %q{Mathmatical graph analysis software.}
   gem.homepage      = "https://github.com/D4L/abstractGraph"
+  gem.license       = "MIT"
 
   gem.files         = `git ls-files`.split($\)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
