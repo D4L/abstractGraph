@@ -7,6 +7,7 @@ module AbstractGraph
     def dup
       other = Graph.new
       other.vertices = @vertices.dup
+      other.edges = @edges.dup
       other
     end
 

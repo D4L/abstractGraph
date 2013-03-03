@@ -7,6 +7,8 @@ module AbstractGraph
       before :each do
         @graph = Graph.new
         @graph.add_vertex "MyVertex"
+        @graph.add_vertex "MyOtherVertex"
+        @graph.add_edge "MyEdge", "MyVertex", "MyOtherVertex"
       end
 
       describe "#dup" do
@@ -24,10 +26,15 @@ module AbstractGraph
           graphdup.has_vertex?( "MyVertex" ).should be_true
         end
 
+        it "copies over the existing edges" do
+          graphdup = @graph.dup
+          graphdup.has_edge?( "MyEdge" ).should be_true
+        end
+
         it "will not modify the original if it is modified" do
           graphdup = @graph.dup
           graphdup.vertices.clear
-          @graph.vertices.size.should == 1
+          @graph.vertices.size.should == 2
         end
 
       end
