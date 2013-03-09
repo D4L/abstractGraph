@@ -120,6 +120,82 @@ module AbstractGraph
 
       end
 
+      describe "#merge_vertices(Array,String)" do
+
+        it "deletes the vertices in the array" do
+          arr = [ @v1, @v2 ]
+          @gnext = @g.merge_vertices( arr, @vmerged )
+          arr.each do |v|
+            @gnext.has_vertex?( v ).should be_false
+          end
+        end
+
+        it "removes the edges connecting the vertices in the array" do
+          arrV = [ @v1, @v2, @v3 ]
+          arrE = [ @e1, @e2 ]
+          @gnext = @g.merge_vertices( arrV, @vmerged )
+          arrE.each do |e|
+            @gnext.has_edge?( e ).should be_false
+          end
+        end
+
+        it "connects the merged vertex with the vertices in the array" do
+          arr = [ @v1, @v3 ]
+          @gnext = @g.merge_vertices( arr, @vmerged )
+          [ @v2, @v4 ].each do |v|
+            @gnext.is_adjacent?( @vmerged, v ).should be_true
+          end
+        end
+
+        it "preserves the edges of earlier vertices than later" do
+          arr = [ @v1, @v3 ]
+          @gnext = @g.merge_vertices( arr, @vmerged )
+          @gnext.has_edge?( @e1 ).should be_true
+          @gnext.has_edge?( @e2 ).should be_false
+          @gnext.has_edge?( @e3 ).should be_false
+          @gnext.has_edge?( @e4 ).should be_true
+        end
+
+      end
+
+      describe "#merge_vertices!(Array,String)" do
+
+        it "deletes the vertices in the array" do
+          arr = [ @v1, @v2 ]
+          @g.merge_vertices!( arr, @vmerged )
+          arr.each do |v|
+            @g.has_vertex?( v ).should be_false
+          end
+        end
+
+        it "removes the edges connecting the vertices in the array" do
+          arrV = [ @v1, @v2, @v3 ]
+          arrE = [ @e1, @e2 ]
+          @g.merge_vertices!( arrV, @vmerged )
+          arrE.each do |e|
+            @g.has_edge?( e ).should be_false
+          end
+        end
+
+        it "connects the merged vertex with the vertices in the array" do
+          arr = [ @v1, @v3 ]
+          @g.merge_vertices!( arr, @vmerged )
+          [ @v2, @v4 ].each do |v|
+            @g.is_adjacent?( @vmerged, v ).should be_true
+          end
+        end
+
+        it "preserves the edges of earlier vertices than later" do
+          arr = [ @v1, @v3 ]
+          @g.merge_vertices!( arr, @vmerged )
+          @g.has_edge?( @e1 ).should be_true
+          @g.has_edge?( @e2 ).should be_false
+          @g.has_edge?( @e3 ).should be_false
+          @g.has_edge?( @e4 ).should be_true
+        end
+
+      end
+
     end
   end
 end
