@@ -12,14 +12,14 @@ module AbstractGraph
       v1 = @vertices[v1] or return nil
       v2 = @vertices[v2] or return nil
 
-      raise Exception if v1 == v2
+      raise Exception.new( "AddEdge: Same vertices passed, #{v1.name}" ) if v1 == v2
 
       # create the edge
       edge = Edge.new s, v1, v2
 
       # check if it's an multiple edge
       @edges.each_value do |e|
-        raise Exception if e.is_coincident? edge
+        raise Exception.new( "AddEdge: Multiple edge being added between #{v1.name}, #{v2.name}" ) if e.is_coincident? edge
       end
 
       @edges.add edge
