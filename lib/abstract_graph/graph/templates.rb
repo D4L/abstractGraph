@@ -9,3 +9,4 @@ module Abstractgraph
 end
 
 require "abstract_graph/graph/templates/complete_graph"
+require "abstract_graph/graph/templates/cycle_graph"

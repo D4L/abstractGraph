@@ -28,6 +28,8 @@ module AbstractGraph
         end
       end
 
+      #TODO: Write some path specific tests
+
     end
 
   end
