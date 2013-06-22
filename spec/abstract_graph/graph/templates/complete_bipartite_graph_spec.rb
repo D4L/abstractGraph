@@ -43,8 +43,8 @@ module AbstractGraph
       end
 
       it "contains the proper edges" do
-        nVertices = @n.times {|i| 2**i}
-        mVertices = @m.times {|i| 2**(i+@n)}
+        nVertices = @n.times.collect {|i| 2**i}
+        mVertices = @m.times.collect {|i| 2**(i+@n)}
         edges = []
         nVertices.each do |n|
           mVertices.each do |m|
