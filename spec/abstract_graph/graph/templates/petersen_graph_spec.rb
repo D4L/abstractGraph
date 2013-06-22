@@ -16,7 +16,7 @@ module AbstractGraph
       it "contains 10 vertices and 15 edges" do
         adjacencies = 0
         (0..9).each do |i|
-          @graphpetersen.has_vertex("v#{2**i}").should be_true
+          @graphpetersen.has_vertex?("v#{2**i}").should be_true
           adjacencies += @graphpetersen.adjacency_list("v#{2**i}").size
         end
         adjacencies.should eql(15 * 2)

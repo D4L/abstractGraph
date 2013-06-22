@@ -23,8 +23,6 @@ module AbstractGraph
           result.add_vertex "v#{vName}"
           vName
         end
-        p vertexN
-        p vertexM
 
         # add the edges to the graph, and make sure they're
         # connected to the other set
