@@ -25,7 +25,7 @@ module AbstractGraph
       it "creates the same number as edges as integer - 1" do
         adjacencies = 0
         @n.times do |i|
-          adjacencies += @graphncycle.adjacency_list("v#{2**i}").size
+          adjacencies += @graphnpath.adjacency_list("v#{2**i}").size
         end
         adjacencies.should eql((@n - 1)*2)
       end
@@ -33,7 +33,7 @@ module AbstractGraph
       it "ensures there are two 'end' vertices" do
         endVertices = 0
         @n.times do |i|
-          endVertices += 1 if @graphncycle.adjacency_list("v#{2**i}").size == 1
+          endVertices += 1 if @graphnpath.adjacency_list("v#{2**i}").size == 1
         end
         endVertices.should eql(2)
       end
@@ -41,7 +41,7 @@ module AbstractGraph
       it "ensures there are integer - 2 vertices with adjacency two" do
         connectorVertices = 0
         @n.times do |i|
-          connectorVertices += 1 if @graphncycle.adjacency_list("v#{2**i}").size == 2
+          connectorVertices += 1 if @graphnpath.adjacency_list("v#{2**i}").size == 2
         end
         connectorVertices.should eql(@n - 2)
       end
