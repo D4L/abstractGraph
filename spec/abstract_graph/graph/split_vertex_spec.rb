@@ -52,6 +52,11 @@ module AbstractGraph
           @gnext = @g.split_vertex @v1
           @gnext.has_vertex?( @v1 ).should be_false
           @gnext.has_edge?( @e1 ).should be_false
+
+          @gnext = @g5path.split_vertex "v4"
+          @gnext.has_vertex?("v4").should be_false
+          @gnext.has_vertex?( "e6" ).should be_false
+          @gnext.has_vertex?( "e12" ).should be_false
         end
 
         it "adds split versions of the original vertex and adjacent edges" do
@@ -60,6 +65,14 @@ module AbstractGraph
           @gnext.has_vertex?( @vsplit2 ).should be_true
           @gnext.has_edge?( @esplit1 ).should be_true
           @gnext.has_edge?( @esplit2 ).should be_true
+
+          @gnext = @g5path.split_vertex "v4"
+          @gnext.has_vertex?( "v4-1" ).should be_true
+          @gnext.has_vertex?( "v4-2" ).should be_true
+          @gnext.has_edge?( "e6-1" ).should be_true
+          @gnext.has_edge?( "e6-2" ).should be_true
+          @gnext.has_edge?( "e12-1" ).should be_true
+          @gnext.has_edge?( "e12-2" ).should be_true
         end
 
         it "connects the split vertices with previous adjacent vertices" do
@@ -72,6 +85,18 @@ module AbstractGraph
           @gnext.is_adjacent?( "v4-2", "v2" ).should be_true
           @gnext.is_adjacent?( "v4-1", "v8" ).should be_true
           @gnext.is_adjacent?( "v4-2", "v8" ).should be_true
+        end
+
+        it "can be chained to create very elaborate graphs very fast" do
+          @gnext = @g5path.split_vertex("v2").split_vertex("v4")
+          @gnext.is_adjacent?( "v2-1", "v1" ).should be_true
+          @gnext.is_adjacent?( "v2-2", "v1" ).should be_true
+          @gnext.is_adjacent?( "v4-1", "v8" ).should be_true
+          @gnext.is_adjacent?( "v4-2", "v8" ).should be_true
+          @gnext.is_adjacent?( "v4-1", "v2-1" ).should be_true
+          @gnext.is_adjacent?( "v4-2", "v2-1" ).should be_true
+          @gnext.is_adjacent?( "v4-1", "v2-2" ).should be_true
+          @gnext.is_adjacent?( "v4-2", "v2-2" ).should be_true
         end
 
       end
