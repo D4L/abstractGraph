@@ -6,11 +6,13 @@ module AbstractGraph
     # return the adjacent vertices in of a vertex
     # p: String s represents the name of the query vertex
     def adjacency_list( s )
+      # this collects all the edges at first
       result = @edges.collect do |id,e|
         e.vertices.collect do |v|
           v.name
         end - [s]
       end.delete_if do |adj|
+        # and deletes the ones with only one remaining tracked
         adj.size == 2
       end.flatten
 
