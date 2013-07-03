@@ -10,7 +10,7 @@ module AbstractGraph
       #   n vertices from 2**(0..n-1) and the second set has m
       #   vertices from 2**(n**m+n-1)
       def complete_bipartite_graph n, m
-        result = Graph.new
+        result = new
 
         # add the vertices to the graph
         vertexN = (0..n-1).map do |i|

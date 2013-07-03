@@ -7,7 +7,7 @@ module AbstractGraph
       # create a petersen graph.
       # ie, a 3 regular graph with 10 vertices and 15 edges
       def petersen_graph
-        result = Graph.new
+        result = new
 
         vertexNames = []
         # add all the vertices

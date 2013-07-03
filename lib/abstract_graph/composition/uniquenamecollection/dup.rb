@@ -7,7 +7,7 @@ module AbstractGraph
       # does a deep copy of the object, in otherwords
       #   copies every object in the collection
       def dup
-        other = UniqueNameCollection.new
+        other = self.class.new
         # copy each object in our collection over
         @collection.each_value do |o|
           other.add o

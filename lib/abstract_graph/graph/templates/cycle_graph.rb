@@ -10,7 +10,7 @@ module AbstractGraph
       # p: the number of vertices in the cycle graph
       #    coincidently, also the number of edges
       def cycle_graph n
-        result = Graph.new
+        result = new
         vertexNames = (n-1).times.collect { |i| 2**(i + 1) }
         lastVertex  = 2**(n-1)
 

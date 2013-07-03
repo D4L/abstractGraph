@@ -5,7 +5,7 @@ module AbstractGraph
 
     # does a deep copy of the graph
     def dup
-      other = Graph.new
+      other = self.class.new
       other.vertices = @vertices.dup
       other.edges = @edges.dup
       other

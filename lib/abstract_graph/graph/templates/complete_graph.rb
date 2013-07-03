@@ -9,7 +9,7 @@ module AbstractGraph
       #   to every other vertex
       # p: the number of vertices in the desired complete graph
       def complete_graph n
-        result = Graph.new
+        result = new
         vertexNames = n.times.collect { |i| 2**i }
         vertexNames.each do |i|
           result.add_vertex "v#{i}"

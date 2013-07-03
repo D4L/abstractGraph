@@ -9,7 +9,7 @@ module AbstractGraph
       #   vertices. Each connector vertex has two adjacent vertices
       # p: the number of vertices in the path, n-1 edges
       def path_graph n
-        result = Graph.new
+        result = new
 
         # add the first vertex
         result.add_vertex "v1"
