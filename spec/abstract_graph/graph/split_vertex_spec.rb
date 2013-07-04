@@ -42,7 +42,7 @@ module AbstractGraph
           @g.split_vertex(@v1)
           @g.has_vertex?( @v1 ).should be_true
           @g.has_vertex?( @v2 ).should be_true
-          @g.has_edge?( @v1 ).should be_true
+          @g.has_edge?( @e1 ).should be_true
           @g.has_vertex?( @vsplit1 ).should be_false
           @g.has_vertex?( @vsplit2 ).should be_false
           @g.has_edge?( @esplit1 ).should be_false
