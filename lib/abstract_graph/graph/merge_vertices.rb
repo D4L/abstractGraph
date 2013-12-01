@@ -51,15 +51,15 @@ module AbstractGraph
       # get the list of connections we want vmerged to be merged with
       finalConnections = {}
       mergeV.reverse.each do |vCheck|
-        @edges.each do |name, e|
+        @edges.each do |e|
           [0,1].each do |edgeVId|
 
             # check if the edge contains our vertex
             if e.vertices[edgeVId].name == vCheck
               otherVertex = e.vertices[(edgeVId+1)%2].name
               # track the vertex with the edge name
-              finalConnections[otherVertex] = name
-              delete_edge! name
+              finalConnections[otherVertex] = e.name 
+              delete_edge! e.name 
             end
 
           end
