@@ -8,6 +8,8 @@ module AbstractGraph
       #   ie, a connected graph with 2 end vertices and n-2 connector
       #   vertices. Each connector vertex has two adjacent vertices
       # p: the number of vertices in the path, n-1 edges
+      # r: a graph with all the vertices named v1, v2, v4... and edges between
+      #   two consecutive vertices in that ordered list
       def path_graph n
         result = new
 
