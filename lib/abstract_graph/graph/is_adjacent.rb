@@ -8,12 +8,9 @@ module AbstractGraph
     def is_adjacent?( v1, v2 )
       vertices = [v1, v2].sort!
 
-      ( @edges.each_value.find do |e|
-        vertices == e.vertices.map do |v|
-          v.name
-        end.sort
+      ( @edges.each.find do |e|
+        vertices == e.vertices.map(&:name).sort
       end && true ) || false
-
     end
 
   end

@@ -36,7 +36,7 @@ module AbstractGraph
         # do not need to go through the array of vertices
         edgesInBetween << get_edge_name( args[0], args[1] )
       else
-        edgesInBetween = @edges.values.collect do |e|
+        edgesInBetween = @edges.collect do |e|
           e.name if ( e.vertices.map do |v|
             v.name
           end & mergeV ).count == 2

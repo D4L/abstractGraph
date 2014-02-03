@@ -37,7 +37,7 @@ module AbstractGraph
       it "returns nil if any of the vertices don't exist" do
         @graph.add_edge( "MyEdge", @vertex1, "randomString" ).should be_nil
         @graph.add_edge( "MyEdge", "randomString", @vertex1 ).should be_nil
-        @graph.edges["MyEdge"].should be_nil
+        @graph.edges.collection["MyEdge"].should be_nil
       end
 
     end

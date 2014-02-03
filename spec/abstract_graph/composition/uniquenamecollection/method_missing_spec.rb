@@ -24,23 +24,12 @@ module AbstractGraph
 
       end
 
-      describe "#has_key?(String)" do
+      describe "#each" do
 
-        it "should return whether the string is an included name" do
-          @collection.has_key?('d').should be_true
-          @collection.has_key?('saddy').should be_false
-        end
-
-      end
-
-      describe "#each_key" do
-
-        it "goes through every name in the collection" do
-          alphabet = ""
-          @collection.each_key do |c|
-            alphabet += c
+        it "goes through every object in the collection" do
+          @collection.each do |c|
+            c.should be_an_instance_of(Dummy)
           end
-          alphabet.should == "abcdefghijklmnopqrstuvwxyz"
         end
 
       end

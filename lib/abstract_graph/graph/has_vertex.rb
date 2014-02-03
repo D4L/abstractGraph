@@ -6,7 +6,8 @@ module AbstractGraph
     # returns whether there exists a vertex with name string
     # p: String s represents name of query vertex
     def has_vertex?( s )
-      @vertices.has_key? s || false
+      #TODO: add a UniqueNameCollection#find method
+      @vertices.collection.has_key? s
     end
 
   end

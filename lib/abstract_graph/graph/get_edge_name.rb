@@ -9,7 +9,7 @@ module AbstractGraph
     def get_edge_name( v1, v2 )
       vertices = [v1, v2].sort!
 
-      @edges.each_value do |e|
+      @edges.each do |e|
         eVertices = e.vertices.map do |v|
           v.name
         end.sort

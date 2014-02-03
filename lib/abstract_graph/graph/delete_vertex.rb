@@ -13,7 +13,8 @@ module AbstractGraph
     # delete a vertex in a current graph
     # p: String s represents the name of the vertex
     def delete_vertex!( s )
-      @vertices.delete s
+      #TODO write a UniqueNameCollection#delete
+      @vertices.collection.delete s
       self
     end
 

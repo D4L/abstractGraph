@@ -9,10 +9,11 @@ module AbstractGraph
       #    String newname represents the new name of our vertex
       # note: the object needs to implement #name=
       def rename( oldname, newname )
-        return nil if @collection[oldname].nil?
+        return nil unless @collection.has_key? oldname
 
         @otherUnique.each do |unc|
-          throw Exception if unc[newname]
+          #TODO: add #find method
+          throw Exception if unc.collection[newname]
         end
 
         # rename the object itself

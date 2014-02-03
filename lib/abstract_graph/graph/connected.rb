@@ -9,7 +9,7 @@ module AbstractGraph
     def connected?
       return true if @vertices.empty?
       seen = []
-      toSee = [@vertices.first.first]
+      toSee = [@vertices.first.name]
 
       # go through vertices and if we seen them, don't inspect them
       # essentially does a depth first search

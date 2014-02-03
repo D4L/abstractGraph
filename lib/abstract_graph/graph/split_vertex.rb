@@ -15,10 +15,10 @@ module AbstractGraph
 
     # same as before except operates on the current graph
     def split_vertex!( s )
-      adjacentVertices = @edges.dup.keep_if do |id, e|
+      adjacentVertices = @edges.dup.keep_if do |e|
         e.vertices.collect(&:name).include? s
-      end.collect do |id, e|
-        [id, ( e.vertices.collect(&:name) - [s] )[0] ]
+      end.collect do |e|
+        [ e.name, ( e.vertices.collect(&:name) - [s] )[0] ]
       end
 
       delete_vertex! s

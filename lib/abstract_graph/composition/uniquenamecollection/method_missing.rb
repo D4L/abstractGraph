@@ -6,7 +6,7 @@ module AbstractGraph
 
       # pass all methods into the hash
       def method_missing( m, *args, &block )
-        @collection.send( m.to_sym, *args, &block )
+        @collection.values.send( m.to_sym, *args, &block )
       end
 
     end

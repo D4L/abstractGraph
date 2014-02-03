@@ -17,8 +17,8 @@ module AbstractGraph
         # check if there are already any duplicates
         allNames = []
         combinedUnique.each do |tunc|
-          return nil if not ( tunc.keys & allNames ).empty?
-          allNames |= tunc.keys
+          return nil unless ( tunc.collection.keys & allNames ).empty?
+          allNames |= tunc.collection.keys
         end
 
         # set each one to have the same uniquespace

@@ -9,7 +9,7 @@ module AbstractGraph
       def add( o )
         # note that otherUnique includes ourself
         @otherUnique.each do |unc|
-          raise IndexError if unc[o.name]
+          raise IndexError if unc.collection.has_key? o.name
         end
         @collection[o.name] = o
       end

@@ -8,7 +8,7 @@ module AbstractGraph
     # r: Array of strings of any vertex adjacent
     def adjacency_list( s )
       # this collects all the edges at first
-      result = @edges.collect do |id,e|
+      result = @edges.collect do |e|
         e.vertices.collect do |v|
           v.name
         end - [s]

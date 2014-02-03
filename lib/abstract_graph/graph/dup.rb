@@ -8,10 +8,10 @@ module AbstractGraph
       other = self.class.new
       # cannot call UniqueNameCollection#dup because we'll lose
       # link data
-      @vertices.each_value do |v|
+      @vertices.each do |v|
         other.vertices.add v
       end
-      @edges.each_value do |e|
+      @edges.each do |e|
         other.edges.add e
       end
       other

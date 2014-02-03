@@ -20,7 +20,7 @@ module AbstractGraph
 
         it "removes the original name from the hash" do
           @collection.rename @name, @newname
-          @collection[@name].should be_nil
+          @collection.collection[@name].should be_nil
         end
 
         it "renames the dummy object" do
