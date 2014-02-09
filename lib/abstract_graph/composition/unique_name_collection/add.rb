@@ -4,8 +4,12 @@ module AbstractGraph
   module Composition
     class UniqueNameCollection
 
-      # adds an object o into the collection
+      # d: Adds the object to our UNC.
+      # a: Goes through all linked UNCs and check the name doesn't exist before
+      #   adding the object.
+      # t: |all linked|
       # p: Object o that implements #name
+      # r: The object o itself
       def add( o )
         # note that otherUnique includes ourself
         @otherUnique.each do |unc|
