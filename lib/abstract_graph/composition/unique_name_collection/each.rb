@@ -1,4 +1,4 @@
-# required in "abstract_graph/composition/uniquenamecollection"
+# required in "abstract_graph/composition/unique_name_collection"
 
 module AbstractGraph
   module Composition
