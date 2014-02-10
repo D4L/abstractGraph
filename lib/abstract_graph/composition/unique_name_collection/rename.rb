@@ -5,17 +5,20 @@ module AbstractGraph
     class UniqueNameCollection
 
       # d: Change the name of a vertex in our graph.
-      # a: Check that no other linked UNC has the name, then swap it.
-      # t: |all collections|
+      # a: Check the namespace otherwise, set collection and add to namespace
+      # t: constant
       # p: String oldname represents the current vertex's name
       #   String newname represents the new name of our vertex
       # r: UNC itself
       def rename( oldname, newname )
         return nil unless @collection.has_key? oldname
 
-        @otherUnique.each do |unc|
-          throw Exception if unc.collection[newname]
-        end
+        nameserver = @@namespace[@namespace_ticket.get][0]
+        throw Exception if nameserver.include? newname
+
+        # change the nameserver
+        nameserver.delete oldname
+        nameserver << newname
 
         # rename the object itself
         @collection[oldname].name = newname

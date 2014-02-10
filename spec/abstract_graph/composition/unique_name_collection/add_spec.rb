@@ -30,7 +30,7 @@ module AbstractGraph
 
         it "allows a same named object after deleting it" do
           @collection.add @dummy
-          @collection.collection.delete @dummy.name
+          @collection.delete @dummy.name
           expect { @collection.add @dummy }.to_not raise_error
         end
 

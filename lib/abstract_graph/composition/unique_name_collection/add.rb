@@ -5,17 +5,17 @@ module AbstractGraph
     class UniqueNameCollection
 
       # d: Adds the object to our UNC.
-      # a: Goes through all linked UNCs and check the name doesn't exist before
-      #   adding the object.
-      # t: |all linked|
+      # a: Ensure that our namespace doesn't already have the object name and
+      #   then add the object to namespace and collection.
+      # t: constant
       # p: Object o that implements #name
       # r: The object o itself
       def add( o )
-        # note that otherUnique includes ourself
-        @otherUnique.each do |unc|
-          raise IndexError if unc.collection.has_key? o.name
-        end
+        set = @@namespace[@namespace_ticket.get][0]
+        raise IndexError if set.include? o.name
+        set << o.name
         @collection[o.name] = o
+        self
       end
 
     end

@@ -5,27 +5,35 @@ module AbstractGraph
     class UniqueNameCollection
 
       # d: Links the UNC so they have unique namespace.
-      # a: Creates a temporary namespace to check all the names by pre-linking,
-      #   if it's fine, then link by setting all the otherUnique to the combined
-      # t: |all collections|
+      # a: check the intersection of namespace so that there's no collision, then
+      #   reset the namespace to contain the shared namespaces and update tickets
+      # t: |intersection and size of ticket|
       # p: UniqueNameCollection unc is the other collection we want to link
       # r: false if the two collections are not already mutually unique
       #   UNC if it succeeds
       def link( unc )
-        # note that either otherUnique may be alot
-        combinedUnique = @otherUnique | unc.otherUnique
+        our_ticket = @namespace_ticket.get
+        other_ticket = unc.namespace_ticket.get
+        our_namespace = @@namespace[our_ticket]
+        other_namespace = @@namespace[other_ticket]
 
-        # check if there are already any duplicates
-        allNames = []
-        combinedUnique.each do |tunc|
-          return nil unless ( tunc.collection.keys & allNames ).empty?
-          allNames |= tunc.collection.keys
+        namespace_intersection = our_namespace[0] & other_namespace[0]
+        return nil unless namespace_intersection.empty?
+
+        # Create the assumption that |our_namespace| >= |other_namespace|
+        if other_namespace[0].size > our_namespace[0].size
+          our_namespace, other_namespace = other_namespace, our_namespace
+          our_ticket, other_ticket = other_ticket, our_ticket
         end
 
-        # set each one to have the same uniquespace
-        combinedUnique.each do |tunc|
-          tunc.otherUnique = combinedUnique
+        # Assume it is fine to link now, add to the larger namespace
+        our_namespace[0].merge other_namespace[0]
+        other_namespace[1].map do |ticket|
+          ticket.set our_ticket
         end
+        our_namespace[1].merge other_namespace[1]
+
+        @@namespace.delete other_ticket
         self
       end
 

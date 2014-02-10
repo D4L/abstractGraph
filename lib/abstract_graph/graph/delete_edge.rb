@@ -13,8 +13,7 @@ module AbstractGraph
     # delete an edge in a current graph
     # p: String s represents the name of the edge
     def delete_edge!( s )
-      #TODO write a UniqueNameCollection#delete method
-      @edges.collection.delete s
+      @edges.delete s
       self
     end
 

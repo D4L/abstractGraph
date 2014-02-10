@@ -48,7 +48,7 @@ module AbstractGraph
         it "allows a same object ofter deletion" do
           @collection1.add @dummy
           @collection1.link @collection2
-          @collection1.collection.delete @dummy.name
+          @collection1.delete @dummy.name
           expect { @collection2.add @dummy2 }.to_not raise_error
         end
 
