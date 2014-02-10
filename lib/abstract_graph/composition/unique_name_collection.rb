@@ -8,7 +8,9 @@ module AbstractGraph
     #   class must implement #name
     class UniqueNameCollection
       attr_accessor :collection
-      attr_accessor :otherUnique
+      attr_accessor :namespace_ticket
+      @@namespace = {}
+      @@namespace_counter = 0
     end
 
   end
@@ -21,3 +23,4 @@ require "abstract_graph/composition/unique_name_collection/method_missing"
 require "abstract_graph/composition/unique_name_collection/link"
 require "abstract_graph/composition/unique_name_collection/rename"
 require "abstract_graph/composition/unique_name_collection/each"
+require "abstract_graph/composition/unique_name_collection/ticket"
