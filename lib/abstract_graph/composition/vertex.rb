@@ -18,4 +18,3 @@ module AbstractGraph
 end
 
 require "abstract_graph/composition/vertex/initialize"
-require "abstract_graph/composition/vertex/delete"
