@@ -3,7 +3,11 @@
 module AbstractGraph
   class Graph
 
-    # public constructor
+    # d: Initializes a graph
+    # a: Creates a vertex and edge UNC and links them to share namespace
+    # t: constant
+    # p:
+    # r: new graph
     def initialize
 
       @vertices = UniqueNameCollection.new

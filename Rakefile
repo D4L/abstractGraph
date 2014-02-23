@@ -37,8 +37,8 @@ task :create_method, :method_path do |t, args|
   end
 
   # Create the filler
-  lib_fill = "# required in \"#{method_directories}\"\n"
-  spec_fill = "require 'spec_helper'\n"
+  lib_fill = "# required in \"#{method_directories}\"\n\n"
+  spec_fill = "require 'spec_helper'\n\n"
 
   modules = method_directories.split /\//
   modules.map! do |modulez|
@@ -54,8 +54,8 @@ task :create_method, :method_path do |t, args|
   lib_fill << "class #{last_module}\n"
   spec_fill << "describe #{last_module} do\n"
 
-  lib_fill << "# d:\n# a:\n# t:\n# p:\n# r:\ndef #{method_name}\nend\n"
-  spec_fill << "describe \"##{method_name}\" do\nend\n"
+  lib_fill << "\n# d:\n# a:\n# t:\n# p:\n# r:\ndef #{method_name}\nend\n\n"
+  spec_fill << "\ndescribe \"##{method_name}\" do\nend\n\n"
 
   modules.size.next.times do |i|
     lib_fill << "end\n"

@@ -3,11 +3,13 @@
 module AbstractGraph
   class Graph
 
-    # returns whether there exists a vertex with name string
-    # p: String s represents name of query vertex
+    # d: Checks if the graph has the vertex.
+    # a: Run find on @vertices and existance it.
+    # t: constant
+    # p: name of vertex
+    # r: true/false depending if vertex with name s exists
     def has_vertex?( s )
-      #TODO: add a UniqueNameCollection#find method
-      @vertices.collection.has_key? s
+      !(@vertices.find s).nil?
     end
 
   end

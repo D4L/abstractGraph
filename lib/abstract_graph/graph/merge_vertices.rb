@@ -3,17 +3,20 @@
 module AbstractGraph
   class Graph
 
-    # returns a replicated graph where the vertices with names
-    #   v1 and v2 merge together to a vertex named vmerged and
-    #   the edges that were adjacent to v1 and v2 are now
-    #   adjacent to vmerged
+    # d: Merges vertices together so that any edges are connected to merged vertex
+    # a: First create a list of all edges within the vertices, they will be deleted.
+    #   Next create a list of edges to create which will be connected to the final
+    #   vertex. This is done by finding the remaining edges connected to the vertices.
+    #   Finally, delete the vertices, add the new vertex, and add the edges.
+    # t: |vertices| * |edges|
     # p: (Array, String)
-    #      array is the string names of vertices to merge together
-    #      string is the name of the final vertex
+    #   array is the string names of vertices to merge together
+    #   string is the name of the final vertex
     #    (String, String, String)
-    #      first two strings are the vertices to merge together
-    #      last string is the name of the merged vertex
-    # e: the edges prioritize v1 to v2 if there are any conflicts
+    #   first two strings are the vertices to merge together
+    #   last string is the name of the merged vertex
+    # r: the graph itself
+    # *: the edges prioritize v1 to v2 if there are any conflicts
     def merge_vertices( *args )
       other = self.dup
       other.merge_vertices!( *args )
@@ -21,7 +24,6 @@ module AbstractGraph
 
     # same as before except operates on the current graph
     def merge_vertices!( *args )
-
       # create a list of vertices we want to merge
       mergeV = []
       if args[0].class == Array

@@ -3,11 +3,13 @@
 module AbstractGraph
   class Graph
 
-    # returns whether there exists a edge with name string
-    # p: String s represents name of edge
+    # d: Checks if graph has the edge.
+    # a: Run find on @edges and existance it.
+    # t: constant
+    # p: name of edge
+    # r: true/false depending if edge with name s exists
     def has_edge?( s )
-      #TODO: Add a UniqueNameCollection#find method
-      @edges.collection.has_key? s
+      !(@edges.find s).nil?
     end
 
   end

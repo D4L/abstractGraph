@@ -3,9 +3,13 @@
 module AbstractGraph
   class Graph
 
-    # checks if graph is connected
-    #   ie, any vertex can be reached from any other vertex
-    # r: true if graph is connected. Note that an empty graph is connected
+    # d: Check if graph is connected
+    # a: Do a depth first search. So we push the first vertex, and then keep trying to go to adjacent
+    #   vertices until all of them are seen. In the end, check if the list of seen vertices is the
+    #   same as the complete vertex list.
+    # t: |vertices| * t(adjacency_list) which is |vertices| * |edges|
+    # p: none
+    # r: returns true if graph is connected, false otherwise
     def connected?
       return true if @vertices.empty?
       seen = []

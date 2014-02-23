@@ -3,11 +3,13 @@
 module AbstractGraph
   class Graph
 
-    # changes an edge name to another valid name
-    # p: String s represents the current edge we want to rename
-    #    String snew is what we want to rename the edge to
+    # d: Change the name of an edge
+    # a: Changes the name of an edge by checking existing names and then adding our own
+    # t: t(rename), which is |edges + vertex|
+    # p: s is current name of edge, snew is requested name of edge
+    # r: returns graph if everything goes well, nil if it failed
     def change_edge_name( s, snew )
-      return nil if @edges.rename(s, snew).nil?
+      return nil unless @edges.rename(s, snew)
       self
     end
 

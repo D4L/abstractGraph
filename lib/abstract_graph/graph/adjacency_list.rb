@@ -3,9 +3,13 @@
 module AbstractGraph
   class Graph
 
-    # return the adjacent vertices in of a vertex
-    # p: String s represents the name of the query vertex
-    # r: Array of strings of any vertex adjacent
+    # d: Return adjacent vertices
+    # a: Go through the edges and collect all the vertex names, subtracting our own. Thus, only the
+    #   'vertices' tuples that have one vertex left are adjacent since the other vertex got deleted.
+    #   Then, we can use the remaining array and return it.
+    # t: |edges|
+    # p: s is the name of vertex
+    # r: returns nil if nothing, returns array of adjacent vertices' names
     def adjacency_list( s )
       # this collects all the edges at first
       result = @edges.collect do |e|

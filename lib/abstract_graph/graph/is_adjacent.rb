@@ -3,11 +3,16 @@
 module AbstractGraph
   class Graph
 
-    # returns whether or not v1 and v2 are joined by an edge
-    # p: String v1, v2 represents the names of the vertices
+    # d: Check if two vertices are adjacent.
+    # a: Go through the edges and check if any of the edges have the same vertices as the
+    #   two query vertices
+    # t: |edges|
+    # p: v1 and v2 are the names of the vertices
+    # r: true if the vertices are adjacent, false otherwise
     def is_adjacent?( v1, v2 )
       vertices = [v1, v2].sort!
 
+      # note find is overridden on uniqueNameCollection
       ( @edges.each.find do |e|
         vertices == e.vertices.map(&:name).sort
       end && true ) || false

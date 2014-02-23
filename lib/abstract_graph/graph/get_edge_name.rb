@@ -3,9 +3,12 @@
 module AbstractGraph
   class Graph
 
-    # returns the edge connecting v1 and v2, if there is no
-    #   edge, then it returns nil
-    # p: String v1, v2 represents the names of the vertices
+    # d: Returns the edge name given two vertex names.
+    # a: Goes through all the edges and see if any of them have the same vertices as
+    #   the ones we are requesting.
+    # t: |edges|
+    # p: the names of the two vertices
+    # r: nil if edge if nothing, name of edge(string) if found
     def get_edge_name( v1, v2 )
       vertices = [v1, v2].sort!
 

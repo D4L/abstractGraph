@@ -3,10 +3,13 @@
 module AbstractGraph
   class Graph
 
-    # returns a replicated graph where all the vertices are the same but one
-    #   gets split and all it's adjacent vertices are now connected to two replaced vertices
-    # p: String s the name of the vertex that will be split into vertexName-1 and vertexName-2
-    #     all adjacent edges will also be split and adjacent to the correct vertex
+    # d: Split a vertex into two and assign adjacent to each of the vertices.
+    # a: Gathers a list of adjacent vertices by going through the edges, then
+    #   deletes the vertex and all the adjacent edges. Then goes back, creates
+    #   two vertices, and recreates all the adjacent edges.
+    # t: |edges|
+    # p: name of vertex to split
+    # r: graph itself
     def split_vertex( s )
       other = self.dup
       other.split_vertex!( s )

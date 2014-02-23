@@ -3,15 +3,15 @@
 module AbstractGraph
   class Graph
 
-    # add a vertex named s to the graph joining
-    #   the vertices named v1 and v2
-    # p: String s represents name
-    #    Vertex name v1 and v2 are the two vertices
-    # r: errors when v1, v2 doesn't exist, loop, or multiple edge
+    # d: Add an edge to graph.
+    # a: Ensure the two vertices exist, then add the edge and check it's not coincident with any
+    #   other edge.
+    # t: |edges|
+    # p: s is name of edge, v1 and v2 are names of the two vertices
+    # r: returns the graph itself
     def add_edge( s, v1, v2 )
-      #TODO: make a UniqueNameCollection#find method, because this is ugly
-      v1 = @vertices.collection[v1] or return nil
-      v2 = @vertices.collection[v2] or return nil
+      v1 = @vertices.find(v1) or return nil
+      v2 = @vertices.find(v2) or return nil
 
       raise Exception.new( "AddEdge: Same vertices passed, #{v1.name}" ) if v1 == v2
 
