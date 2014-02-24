@@ -4,11 +4,13 @@ module AbstractGraph
   class Graph
     class << self
 
-      # create a connected graph with two sets of vertices where
-      #   the two sets only have vertices adjacent to the other set
-      # p: the number of vertices in the two sets. the first set has
-      #   n vertices from 2**(0..n-1) and the second set has m
-      #   vertices from 2**(n**m+n-1)
+      # d: Create a complete bipartite graph K(n,m).
+      # a: It first adds the vertices, then adds the edges. The vertices are named "v(2^i)" from
+      #   the first set being i=2^0..n-1, and the second set i=2^n..m+n-1. The edges are sums "e(i)"
+      #   where i=sum of two vertices
+      # t: n * m * t(add_edge) + max(n,m) * t(add_vertex)
+      # p: n is the number of vertices in the first set, m is number of vertices in second set
+      # r: a complete bipartite graph
       def complete_bipartite_graph n, m
         result = new
 

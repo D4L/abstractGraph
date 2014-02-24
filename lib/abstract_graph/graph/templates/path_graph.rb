@@ -4,12 +4,12 @@ module AbstractGraph
   class Graph
     class << self
 
-      # create a variable sized path graph,
-      #   ie, a connected graph with 2 end vertices and n-2 connector
-      #   vertices. Each connector vertex has two adjacent vertices
-      # p: the number of vertices in the path, n-1 edges
-      # r: a graph with all the vertices named v1, v2, v4... and edges between
-      #   two consecutive vertices in that ordered list
+      # d: Returns a path.
+      # a: It creates a path.by adding vertices and edges at the same time, vertices named "v(i)"
+      #   i=2^0..n-1, and edges "e(i)" where i is sum of vertices adjacent.
+      # t: n * (t(add_vertex) + t(add_edge))
+      # p: n is the number of vertices
+      # r: a path graph
       def path_graph n
         result = new
 

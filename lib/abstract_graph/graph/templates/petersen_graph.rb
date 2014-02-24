@@ -4,6 +4,12 @@ module AbstractGraph
   class Graph
     class << self
 
+      # d: Create a peterson graph.
+      # a: It adds 10 vertices "v(i)", i=2^0..9. Then adds the specified edges, according to the
+      #   specified edges array.
+      # t: constant
+      # p: none
+      # r: a peterson graph
       # create a petersen graph.
       # ie, a 3 regular graph with 10 vertices and 15 edges
       def petersen_graph
@@ -24,8 +30,8 @@ module AbstractGraph
         [4, 9], [5, 8], [5, 7],
         [6, 9], [7, 9], [6, 8]]
 
-        specifiedEdges.each do |edgePair|
-          result.add_edge "e#{vertexNames[edgePair[0]] + vertexNames[edgePair[1]]}", "v#{vertexNames[edgePair[0]]}", "v#{vertexNames[edgePair[1]]}"
+        specifiedEdges.each do |edge1, edge2|
+          result.add_edge "e#{vertexNames[edge1] + vertexNames[edge2]}", "v#{vertexNames[edge1]}", "v#{vertexNames[edge2]}"
         end
 
         result

@@ -4,11 +4,12 @@ module AbstractGraph
   class Graph
     class << self
 
-      # create a variabled sized cycle graph,
-      #   ie, a connected graph such that every vertex has
-      #   exactly two distinct paths to every other vertex
-      # p: the number of vertices in the cycle graph
-      #    coincidently, also the number of edges
+      # d: Create a cycle graph
+      # a: Create the vertices and edges at the same time. The naming scheme is power of two for
+      #   vertices and the sum of vertices for edges.
+      # t: n * (t(add_vertex) + t(add_edge))
+      # p: n is the number of vertices
+      # r: a cycle graph
       def cycle_graph n
         result = new
         vertexNames = (n-1).times.collect { |i| 2**(i + 1) }
