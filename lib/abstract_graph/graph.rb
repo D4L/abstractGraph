@@ -10,6 +10,7 @@ module AbstractGraph
 
     attr_accessor :vertices
     attr_accessor :edges
+    attr_accessor :implementation
 
   end
 

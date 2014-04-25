@@ -2,7 +2,7 @@
 
 # Define a bunch of pre-constructed graphs
 
-module Abstractgraph
+module AbstractGraph
   class Graph
 
   end
