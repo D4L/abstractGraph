@@ -10,8 +10,8 @@ module AbstractGraph
       # t: n * (t(add_vertex) + t(add_edge))
       # p: n is the number of vertices
       # r: a path graph
-      def path_graph n
-        result = new
+      def path_graph n, options = {}
+        result = new( options )
 
         # add the first vertex
         result.add_vertex "v1"

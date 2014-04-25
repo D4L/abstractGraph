@@ -1,42 +1,39 @@
 require 'spec_helper'
 
 module AbstractGraph
-  describe Graph do
+
+  shared_examples "dup" do
 
     before :each do
-      @graph = Graph.new
-      @graph.add_vertex "MyVertex"
-      @graph.add_vertex "MyOtherVertex"
-      @graph.add_edge "MyEdge", "MyVertex", "MyOtherVertex"
+      subject.add_vertex "MyVertex"
+      subject.add_vertex "MyOtherVertex"
+      subject.add_edge "MyEdge", "MyVertex", "MyOtherVertex"
     end
 
-    describe "#dup" do
+    it "returns a graph object" do
+      subject.dup.should be_an_instance_of(Graph)
+    end
 
-      it "returns a graph object" do
-        @graph.dup.should be_an_instance_of(Graph)
-      end
+    it "has a different id than the original graph" do
+      subject.object_id.should_not == subject.dup.object_id
+    end
 
-      it "has a different id than the original graph" do
-        @graph.object_id.should_not == @graph.dup.object_id
-      end
+    it "copies over the existing vertices" do
+      graphdup = subject.dup
+      graphdup.has_vertex?( "MyVertex" ).should be_true
+    end
 
-      it "copies over the existing vertices" do
-        graphdup = @graph.dup
-        graphdup.has_vertex?( "MyVertex" ).should be_true
-      end
+    it "copies over the existing edges" do
+      graphdup = subject.dup
+      graphdup.has_edge?( "MyEdge" ).should be_true
+    end
 
-      it "copies over the existing edges" do
-        graphdup = @graph.dup
-        graphdup.has_edge?( "MyEdge" ).should be_true
-      end
-
-      it "will not modify the original if it is modified" do
-        graphdup = @graph.dup
-        graphdup.vertices.clear
-        @graph.vertices.size.should == 2
-      end
-
+    it "will not modify the original if it is modified" do
+      graphdup = subject.dup
+      graphdup.vertices.clear
+      subject.vertices.size.should == 2
     end
 
   end
+
 end

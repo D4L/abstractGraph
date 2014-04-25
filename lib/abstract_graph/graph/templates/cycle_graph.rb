@@ -10,8 +10,8 @@ module AbstractGraph
       # t: n * (t(add_vertex) + t(add_edge))
       # p: n is the number of vertices
       # r: a cycle graph
-      def cycle_graph n
-        result = new
+      def cycle_graph n, options = {}
+        result = new( options )
         vertexNames = (n-1).times.collect { |i| 2**(i + 1) }
         lastVertex  = 2**(n-1)
 

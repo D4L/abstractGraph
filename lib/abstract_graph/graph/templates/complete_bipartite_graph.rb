@@ -11,8 +11,8 @@ module AbstractGraph
       # t: n * m * t(add_edge) + max(n,m) * t(add_vertex)
       # p: n is the number of vertices in the first set, m is number of vertices in second set
       # r: a complete bipartite graph
-      def complete_bipartite_graph n, m
-        result = new
+      def complete_bipartite_graph n, m, options = {}
+        result = new( options )
 
         # add the vertices to the graph
         vertexN = (0..n-1).map do |i|

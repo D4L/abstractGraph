@@ -10,8 +10,8 @@ module AbstractGraph
       # t: n * t(add_vertex) + C(n,2) * t(add_edge)
       # p: n is number of vertices
       # r: a complete graph
-      def complete_graph n
-        result = new
+      def complete_graph n, options = {}
+        result = new( options )
         vertexNames = n.times.collect { |i| 2**i }
         vertexNames.each do |i|
           result.add_vertex "v#{i}"
