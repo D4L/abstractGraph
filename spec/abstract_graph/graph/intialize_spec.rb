@@ -13,11 +13,13 @@ module AbstractGraph
       end
 
       it "allows passing in implementation" do
+        pending "Need to do adjacency list"
         @graph = Graph.new(implementation: :adjacency_list)
         @graph.implementation.should eq(:adjacency_list)
       end
 
       it "sets the default implementation to adjacency_list" do
+        pending "Need to do adjacency list"
         @graph.implementation.should eq(:adjacency_list)
       end
 
