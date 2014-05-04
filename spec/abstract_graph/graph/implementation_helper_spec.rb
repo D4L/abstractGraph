@@ -2,10 +2,15 @@ require 'spec_helper'
 
 module AbstractGraph
   describe Graph::ImplementationHelper do
-    subject { Graph::ImplementationHelper }
-    it "has module array of implementations" do
-      subject.class_variable_defined?(:@@implementation_list).should be_true
-      subject.class_variable_get(:@@implementation_list).should be_an_instance_of(Array)
+
+    let :class_with_helper do
+      Class.new do
+        include Graph::ImplementationHelper
+      end
     end
+
+    subject { class_with_helper }
+
+    it_has_method "add_implementation(Symbol, Class)"
   end
 end
