@@ -9,7 +9,7 @@ module AbstractGraph
     # p:
     # r: new graph
     def initialize(options = {})
-      @implementation = options[:implementation] || :adjacency_list
+      self.implementation = options[:implementation] || :adjacency_list
       @vertices = UniqueNameCollection.new
       @edges = UniqueNameCollection.new
       @vertices.link @edges

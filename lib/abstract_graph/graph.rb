@@ -10,7 +10,8 @@ module AbstractGraph
 
     attr_accessor :vertices
     attr_accessor :edges
-    attr_accessor :implementation
+    attr_reader :implementation
+    @@implementation_list = {}
 
   end
 
@@ -34,4 +35,14 @@ require "abstract_graph/graph/templates"
 require "abstract_graph/graph/split_vertex"
 require "abstract_graph/graph/connected"
 require "abstract_graph/graph/implementation"
-require "abstract_graph/graph/implementation_helper"
+require "abstract_graph/graph/add_implementation"
+
+# class initiation stuff
+module AbstractGraph
+  class Graph
+
+    add_implementation :naive, Class.new
+    add_implementation :adjacency_list, Class.new
+
+  end
+end

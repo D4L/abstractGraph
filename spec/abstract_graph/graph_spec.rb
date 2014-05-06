@@ -2,11 +2,6 @@ require 'spec_helper'
 
 module AbstractGraph
   describe Graph do
-    context "class methods" do
-      subject { Graph }
-      it_has_method "add_implementation(Symbol, Class)"
-    end
-
     context "with naive implementation" do
       subject { Graph.new }
       it_has_method "adjacency_list(String)"
