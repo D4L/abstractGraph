@@ -37,7 +37,7 @@ module AbstractGraph
   class Graph
 
     add_implementation :naive, Implementations::Naive
-    add_implementation :adjacency_list, Class.new
+    add_implementation :adjacency_list, Implementations::AdjacencyList
 
   end
 end
