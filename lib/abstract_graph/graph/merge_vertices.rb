@@ -4,11 +4,10 @@ module AbstractGraph
   class Graph
 
     # d: Merges vertices together so that any edges are connected to merged vertex
-    # a: First create a list of all edges within the vertices, they will be deleted.
-    #   Next create a list of edges to create which will be connected to the final
-    #   vertex. This is done by finding the remaining edges connected to the vertices.
-    #   Finally, delete the vertices, add the new vertex, and add the edges.
-    # t: |vertices| * |edges|
+    # a: Iterate through the vertices you want merged and for each, go through it's adjacency
+    #   list. Each edge in there is to be deleted, also track the vertices, since they will
+    #   be added to vmerge, then delete the vertices, and add vmerge + extra edges.
+    # t:
     # p: (Array, String)
     #   array is the string names of vertices to merge together
     #   string is the name of the final vertex
@@ -32,39 +31,18 @@ module AbstractGraph
         mergeV << args[0] << args[1]
       end
 
-      # first construct an array of edges in between vertices
-      edgesInBetween = []
-      if ( args.size == 3 )
-        # do not need to go through the array of vertices
-        edgesInBetween << get_edge_name( args[0], args[1] )
-      else
-        edgesInBetween = @edges.collect do |e|
-          e.name if ( e.vertices.map do |v|
-            v.name
-          end & mergeV ).count == 2
-        end
-      end
-
-      # delete the edges in between vertices
-      edgesInBetween.each do |e|
-        delete_edge!( e ) if e
-      end
-
-      # get the list of connections we want vmerged to be merged with
+      # go through vertex adjacency lists, and delete any bad vertices!
+      # at the same time, keep track of the connections vmerged will be merged with
       finalConnections = {}
-      mergeV.reverse.each do |vCheck|
-        @edges.each do |e|
-          [0,1].each do |edgeVId|
-
-            # check if the edge contains our vertex
-            if e.vertices[edgeVId].name == vCheck
-              otherVertex = e.vertices[(edgeVId+1)%2].name
-              # track the vertex with the edge name
-              finalConnections[otherVertex] = e.name 
-              delete_edge! e.name 
-            end
-
+      # go in reverse to prioritize the edges that are earlier in the array
+      mergeV.reverse.each do |vertex|
+        @graph_impl.adjacency_list( vertex ).each do |v,e|
+          if mergeV.include? v
+            delete_edge! e
+            next
           end
+          finalConnections[v] = e
+          delete_edge! e
         end
       end
 

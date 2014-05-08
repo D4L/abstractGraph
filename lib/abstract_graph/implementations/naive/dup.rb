@@ -15,10 +15,10 @@ module AbstractGraph
         # cannot call UniqueNameCollection#dup because we'll lose
         # link data
         @vertices.each do |v|
-          other.vertices.add v
+          other.add_vertex v.name
         end
         @edges.each do |e|
-          other.edges.add e
+          other.add_edge e.name, e.vertices[0].name, e.vertices[1].name
         end
         other
       end

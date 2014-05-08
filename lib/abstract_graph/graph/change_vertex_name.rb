@@ -9,7 +9,7 @@ module AbstractGraph
     # p: s is current name of vertex, snew is requested name of vertex
     # r: returns graph if everything goes well, nil if it failed
     def change_vertex_name( s, snew )
-      return nil if @vertices.rename(s, snew).nil?
+      return nil unless @graph_impl.set_data(s, :name, snew)
       self
     end
 

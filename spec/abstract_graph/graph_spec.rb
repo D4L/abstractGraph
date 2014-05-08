@@ -6,7 +6,7 @@ module AbstractGraph
       subject { Graph.new implementation: :naive }
       it_has_method "adjacency_list(String)"
       it_has_method "add_edge(String, String, String)"
-      it_has_method "add_vertex(String)"
+      it_has_method "add_vertex(String)", :naive
       it_has_method "change_edge_name(String,String)"
       it_has_method "change_vertex_name(String,String)"
       it_has_method "connected?", :naive

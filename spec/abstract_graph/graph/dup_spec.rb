@@ -30,8 +30,9 @@ module AbstractGraph
 
     it "will not modify the original if it is modified" do
       graphdup = subject.dup
-      graphdup.vertices.clear
-      subject.vertices.size.should == 2
+      graphdup.delete_edge! "MyEdge"
+      graphdup.delete_vertex! "MyVertex"
+      subject.has_vertex?("MyVertex").should be_true
     end
 
   end
