@@ -11,9 +11,10 @@ module AbstractGraph
     # p: none
     # r: returns true if graph is connected, false otherwise
     def connected?
-      return true if @vertices.empty?
+      vertices = @graph_impl.vertices
+      return true if vertices.empty?
       seen = []
-      toSee = [@vertices.first.name]
+      toSee = [vertices.first]
 
       # go through vertices and if we seen them, don't inspect them
       # essentially does a depth first search
@@ -21,15 +22,15 @@ module AbstractGraph
         inspect = toSee.pop
         seen << inspect
 
-        adjacentVertices = adjacency_list( inspect )
+        adjacentVertices = @graph_impl.adjacency_list( inspect )
         break if adjacentVertices.nil?
 
         # add adjacent vertices if they're not in any of the seen lists
-        adjacentVertices.each do |v|
-          toSee << v if !seen.include?( v ) && !toSee.include?( v )
+        adjacentVertices.each do |v, e|
+          toSee << v unless seen.include?( v ) || toSee.include?( v )
         end
       end
-      seen.size == @vertices.size
+      seen.size == vertices.size
     end
 
   end

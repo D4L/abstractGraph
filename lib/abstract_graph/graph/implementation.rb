@@ -11,6 +11,7 @@ module AbstractGraph
     def implementation=(implementation)
       raise Exception unless @@implementation_list.include? implementation
       @implementation = implementation
+      @graph_impl = @@implementation_list[implementation].new
     end
 
   end

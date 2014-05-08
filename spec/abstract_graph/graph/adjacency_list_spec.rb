@@ -23,7 +23,7 @@ module AbstractGraph
     end
 
     it "returns an array if there are adjacent vertices" do
-      subject.adjacency_list( @vertex1 ).should be_an_instance_of(Array)
+      subject.adjacency_list( @vertex1 ).should be_an_instance_of(Hash)
     end
 
     it "returns nil if there are no adjacent vertices" do
@@ -34,6 +34,12 @@ module AbstractGraph
       subject.adjacency_list( @vertex2 ).should include(@vertex1)
       subject.adjacency_list( @vertex2 ).should include(@vertex3)
       subject.adjacency_list( @vertex1 ).should include(@vertex2)
+    end
+
+    it "returns the edges that are connected to the vertex" do
+      subject.adjacency_list( @vertex2 ).values.should include(@edge1)
+      subject.adjacency_list( @vertex2 ).values.should include(@edge2)
+      subject.adjacency_list( @vertex1 ).values.should include(@edge1)
     end
 
   end

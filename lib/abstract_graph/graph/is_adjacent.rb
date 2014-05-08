@@ -10,12 +10,7 @@ module AbstractGraph
     # p: v1 and v2 are the names of the vertices
     # r: true if the vertices are adjacent, false otherwise
     def is_adjacent?( v1, v2 )
-      vertices = [v1, v2].sort!
-
-      # note find is overridden on uniqueNameCollection
-      ( @edges.each.find do |e|
-        vertices == e.vertices.map(&:name).sort
-      end && true ) || false
+      ( @graph_impl.adjacency_list(v1)[ v2 ] && true ) || false
     end
 
   end

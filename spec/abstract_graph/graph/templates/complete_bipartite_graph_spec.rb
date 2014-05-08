@@ -7,12 +7,12 @@ module AbstractGraph
 
       before :all do
         @n, @m = 5, 6
-        @graphknm = Graph.complete_bipartite_graph @n, @m
-        @graphk1010 = Graph.complete_bipartite_graph 10, 10
+        @graphknm = Graph.complete_bipartite_graph @n, @m, implementation: :naive
+        @graphk1010 = Graph.complete_bipartite_graph 10, 10, implementation: :naive
       end
 
       it "returns an object of class Graph" do
-        Graph.complete_bipartite_graph(1, 1).should be_an_instance_of(Graph)
+        Graph.complete_bipartite_graph(1, 1, implementation: :naive).should be_an_instance_of(Graph)
       end
 
       it "creates as many vertices as the sum of the Integers, named with powers of two" do

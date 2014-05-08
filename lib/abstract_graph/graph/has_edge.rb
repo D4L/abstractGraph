@@ -4,12 +4,12 @@ module AbstractGraph
   class Graph
 
     # d: Checks if graph has the edge.
-    # a: Run find on @edges and existance it.
-    # t: constant
+    # a: Check implementation if it has edge.
+    # t:
     # p: name of edge
     # r: true/false depending if edge with name s exists
     def has_edge?( s )
-      !(@edges.find s).nil?
+      @graph_impl.edges.include? s
     end
 
   end

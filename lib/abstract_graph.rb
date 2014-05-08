@@ -1,6 +1,7 @@
 require "set"
 require "abstract_graph/version"
 require "abstract_graph/composition"
+require "abstract_graph/implementations"
 require "abstract_graph/graph"
 
 module AbstractGraph

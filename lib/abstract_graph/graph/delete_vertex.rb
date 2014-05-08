@@ -5,7 +5,7 @@ module AbstractGraph
 
     # d: Delete an vertex.
     # a: Deletes the vertex.
-    # t: constant
+    # t:
     # p: s is the vertex name
     # r: graph itself
     def delete_vertex( s )
@@ -14,7 +14,7 @@ module AbstractGraph
     end
 
     def delete_vertex!( s )
-      @vertices.delete s
+      @graph_impl.delete_vertex! s
       self
     end
 

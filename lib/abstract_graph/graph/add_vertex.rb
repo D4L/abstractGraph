@@ -4,14 +4,12 @@ module AbstractGraph
   class Graph
 
     # d: Add a vertex to graph.
-    # a: Adds the new vertex.
+    # a: Adds the new vertex to the implementation.
     # t: constant
     # p: s is the name of the vertex
     # r: returns the graph itself
     def add_vertex( s )
-      # create the vertex
-      vertex = Vertex.new s
-      @vertices.add vertex
+      @graph_impl.add_vertex s
       self
     end
 

@@ -5,11 +5,6 @@ module AbstractGraph
   # public Graph class
   class Graph
 
-    # Add the vertex and edge classes
-    include Composition
-
-    attr_accessor :vertices
-    attr_accessor :edges
     attr_reader :implementation
     @@implementation_list = {}
 
@@ -41,7 +36,7 @@ require "abstract_graph/graph/add_implementation"
 module AbstractGraph
   class Graph
 
-    add_implementation :naive, Class.new
+    add_implementation :naive, Implementations::Naive
     add_implementation :adjacency_list, Class.new
 
   end

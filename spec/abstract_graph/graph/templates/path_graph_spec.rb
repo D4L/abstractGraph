@@ -7,12 +7,12 @@ module AbstractGraph
 
       before :all do
         @n = 4
-        @graphnpath = Graph.path_graph @n
-        @graph10path = Graph.path_graph 10
+        @graphnpath = Graph.path_graph @n, implementation: :naive
+        @graph10path = Graph.path_graph 10, implementation: :naive
       end
 
       it "returns an object of class Graph" do
-        Graph.path_graph(1).should be_an_instance_of(Graph)
+        Graph.path_graph(1, implementation: :naive).should be_an_instance_of(Graph)
       end
 
       it "creates as many vertices as the integer, named with powers of two" do

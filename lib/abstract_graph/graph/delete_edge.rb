@@ -14,7 +14,7 @@ module AbstractGraph
     end
 
     def delete_edge!( s )
-      @edges.delete s
+      @graph_impl.delete_edge! s
       self
     end
 

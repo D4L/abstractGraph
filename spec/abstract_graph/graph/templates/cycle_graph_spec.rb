@@ -7,12 +7,12 @@ module AbstractGraph
 
       before :all do
         @n = 6
-        @graphncycle = Graph.cycle_graph @n
-        @graph10cycle = Graph.cycle_graph 10
+        @graphncycle = Graph.cycle_graph @n, implementation: :naive
+        @graph10cycle = Graph.cycle_graph 10, implementation: :naive
       end
 
       it "retuns an object of class Graph" do
-        Graph.complete_graph(1).should be_an_instance_of(Graph)
+        Graph.complete_graph(1, implementation: :naive).should be_an_instance_of(Graph)
       end
 
       it "creates as many vertices as the integer, named with powers of two" do

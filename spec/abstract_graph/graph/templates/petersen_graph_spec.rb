@@ -6,7 +6,7 @@ module AbstractGraph
     describe ".petersen_graph" do
 
       before :all do
-        @graphpetersen = Graph.petersen_graph
+        @graphpetersen = Graph.petersen_graph( implementation: :naive )
       end
 
       it "returns an object of class Graph" do
