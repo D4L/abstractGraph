@@ -19,10 +19,10 @@ module AbstractGraph
     def split_vertex!( s )
       adjacency_list = @graph_impl.adjacency_list s
 
-      delete_vertex! s
       adjacency_list.each do |v, e|
         delete_edge! e
       end
+      delete_vertex! s
 
       add_vertex "#{s}-1"
       add_vertex "#{s}-2"

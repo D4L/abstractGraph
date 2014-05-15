@@ -38,6 +38,7 @@ module AbstractGraph
 
     add_implementation :naive, Implementations::Naive
     add_implementation :adjacency_list, Implementations::AdjacencyList
+    add_implementation :adjacency_matrix, Implementations::AdjacencyMatrix
 
   end
 end

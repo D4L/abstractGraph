@@ -4,8 +4,6 @@ module AbstractGraph
   module Implementations
 
     class AdjacencyList
-      attr_accessor :vertices
-
       Vertex = Struct.new :name
       Edge = Struct.new :name, :adjacent_to
     end
