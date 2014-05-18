@@ -24,11 +24,11 @@ namespace :benchmark do
       end
 
       def start_method method
-        p "start #{method} #{'%.8f' % (Time.now - @start_time)}"
+        print "start #{method} #{'%.8f' % (Time.now - @start_time)}\n"
       end
 
       def end_method method
-        p "end #{method} #{'%.8f' % (Time.now - @start_time)}"
+        print "end #{method} #{'%.8f' % (Time.now - @start_time)}\n"
       end
     end
   end
